@@ -26,7 +26,7 @@ namespace CustomConsolePackage
         #endregion
 
         [Header("UI Components")]
-        [SerializeField] TMP_InputField inputField;
+        public TMP_InputField commandInputField;
         [SerializeField] TextMeshProUGUI suggestText;
         [SerializeField] TextMeshProUGUI suggestPrefab;
         [SerializeField] GameObject commandScrollView;
@@ -49,7 +49,7 @@ namespace CustomConsolePackage
 
         public void ExecuteCommand()
         {
-            ExecuteCommand(inputField.text);
+            ExecuteCommand(commandInputField.text);
         }
         void GetGameObjectFromMousePos()
         {
@@ -75,38 +75,38 @@ namespace CustomConsolePackage
             }
             if (suggestText.text != "" && Input.GetKeyDown(KeyCode.Tab))
             {
-                inputField.text = suggestCommand;
-                inputField.MoveTextEnd(false);
+                commandInputField.text = suggestCommand;
+                commandInputField.MoveTextEnd(false);
                 suggestText.text = "";
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow) && inputField.isFocused)
+            if (Input.GetKeyDown(KeyCode.UpArrow) && commandInputField.isFocused)
             {
                 if (typedWords.Count == 0) return;
                 index--;
                 if (index < 0)
                 {
                     index = 0;
-                    inputField.MoveTextEnd(false);
+                    commandInputField.MoveTextEnd(false);
                     return;
                 }
-                inputField.text = typedWords[index];
-                inputField.MoveTextEnd(false);
+                commandInputField.text = typedWords[index];
+                commandInputField.MoveTextEnd(false);
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && inputField.isFocused)
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && commandInputField.isFocused)
             {
                 if (typedWords.Count == 0) return;
                 index++;
                 if (index >= typedWords.Count)
                 {
                     index = typedWords.Count;
-                    inputField.text = "";
-                    inputField.MoveTextEnd(false);
+                    commandInputField.text = "";
+                    commandInputField.MoveTextEnd(false);
                     return;
                 }
-                inputField.text = typedWords[index];
-                inputField.MoveTextEnd(false);
+                commandInputField.text = typedWords[index];
+                commandInputField.MoveTextEnd(false);
             }
-            else if (!inputField.isFocused)
+            else if (!commandInputField.isFocused)
             {
                 index = typedWords.Count;
             }
@@ -145,14 +145,14 @@ namespace CustomConsolePackage
                         {
                             entry.Key.Invoke(entry.Value, null);
                             UnityEngine.Debug.Log($"Executed Command: {entry.Key.Name}");
-                            inputField.text = "";
+                            commandInputField.text = "";
                             return;
                         }
                         catch (Exception ex)
                         {
                             UnityEngine.Debug.LogError($"Error invoking method: {ex.Message}");
                             print(entry.Value.gameObject.GetComponent<MonoBehaviour>());
-                            inputField.text = "";
+                            commandInputField.text = "";
                         }
                     }
                     else
@@ -216,14 +216,14 @@ namespace CustomConsolePackage
                             }
                             entry.Key.Invoke(entry.Value, words);
                             UnityEngine.Debug.Log($"Executed Command: {entry.Key.Name} with parameters.");
-                            inputField.text = "";
+                            commandInputField.text = "";
                             return;
                         }
                         catch (Exception ex)
                         {
                             UnityEngine.Debug.LogError($"Error invoking method: {ex.Message}");
                             print(entry.Value.gameObject.GetComponent<MonoBehaviour>());
-                            inputField.text = "";
+                            commandInputField.text = "";
 
                         }
                     }
@@ -232,11 +232,11 @@ namespace CustomConsolePackage
             }
             if (commandName == "") return;
             UnityEngine.Debug.LogError("No command found with: " + commandName);
-            inputField.text = "";
+            commandInputField.text = "";
         }
         public void ExecuteCommandFromButton()
         {
-            string commandName = inputField.text;
+            string commandName = commandInputField.text;
             if (commandName != "")
                 typedWords.Add(commandName);
             string test = commandName.Split(new string[] { " " }, StringSplitOptions.None).First();
@@ -251,14 +251,14 @@ namespace CustomConsolePackage
                         {
                             entry.Key.Invoke(entry.Value, null);
                             UnityEngine.Debug.Log($"Executed Command: {entry.Key.Name}");
-                            inputField.text = "";
+                            commandInputField.text = "";
                             return;
                         }
                         catch (Exception ex)
                         {
                             UnityEngine.Debug.LogError($"Error invoking method: {ex.Message}");
                             print(entry.Value.gameObject.GetComponent<MonoBehaviour>());
-                            inputField.text = "";
+                            commandInputField.text = "";
                         }
                     }
                     else
@@ -322,14 +322,14 @@ namespace CustomConsolePackage
                             }
                             entry.Key.Invoke(entry.Value, words);
                             UnityEngine.Debug.Log($"Executed Command: {entry.Key.Name} with parameters.");
-                            inputField.text = "";
+                            commandInputField.text = "";
                             return;
                         }
                         catch (Exception ex)
                         {
                             UnityEngine.Debug.LogError($"Error invoking method: {ex.Message}");
                             print(entry.Value.gameObject.GetComponent<MonoBehaviour>());
-                            inputField.text = "";
+                            commandInputField.text = "";
 
                         }
                     }
@@ -338,7 +338,7 @@ namespace CustomConsolePackage
             }
             if (commandName == "") return;
             UnityEngine.Debug.LogError("No command found with: " + commandName);
-            inputField.text = "";
+            commandInputField.text = "";
         }
         public void ListOfCommands()
         {
@@ -379,15 +379,15 @@ namespace CustomConsolePackage
         }
         public void WriteToConsole(string text)
         {
-            inputField.text = text.ToLower();
-            inputField.MoveTextEnd(false);
+            commandInputField.text = text.ToLower();
+            commandInputField.MoveTextEnd(false);
             suggestText.text = "";
 
         }
         public void SuggestCommand()
         {
-            string catchText = inputField.text;
-            string currentText = inputField.text;
+            string catchText = commandInputField.text;
+            string currentText = commandInputField.text;
             if (currentText == "")
             {
                 suggestText.text = "";
@@ -402,13 +402,13 @@ namespace CustomConsolePackage
                     suggestText.text = currentText + suggestedCompletion.ToLower();
 
                     suggestCommand = entry.Key.Name.ToLower();
-                    inputField.text = catchText.ToLower();
+                    commandInputField.text = catchText.ToLower();
                     return;
                 }
             }
             suggestText.text = "";
             suggestCommand = "";
-            inputField.text = catchText.ToLower();
+            commandInputField.text = catchText.ToLower();
         }
     }
 }

@@ -51,6 +51,7 @@ namespace CustomConsolePackage
         [SerializeField] TextMeshProUGUI logPrefab;
         [SerializeField] Animator animator;
         [HideInInspector] public bool closed = false;
+        [SerializeField] KeyCode openConsoleKey;
         Color normalLogButtonStartColor;
         Color warningLogButtonStartColor;
         Color errorLogButtonStartColor;
@@ -115,6 +116,14 @@ namespace CustomConsolePackage
 #elif !UNITY_EDITOR
         Debug.LogError("Only supported in editor!. Would open the path to error in code editor.");
 #endif
+        }
+        private void Update()
+        {
+            if (ExecutingCustomCommand.Instance.commandInputField.isFocused) return;
+            if(Input.GetKeyDown(openConsoleKey))
+            {
+                PlayAnimation();
+            }
         }
         void HandleLog(string logString, string stackTrace, LogType type)
         {
