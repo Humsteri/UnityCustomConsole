@@ -1,7 +1,8 @@
 You need to import TMP Essential Resources
 
+To get some logs in build you might have to change your settings in PLAYER SETTINGS -> OTHER -> STACK TRACE
 
-This will show how to add commands that will get picked up by the script. CommandHolder.cs has two commands ready for use.
+This will show how to add commands that will get picked up by the script. CommandHolder.cs has two commands ready for use: Clear and DestroyCommand. Inside the console prefab there is a setting for "Use Mouse Pos". When activated you can right click and it will print the ID of gameobject you are pointing at.
 
 Tooltip will show when hovering over an command in the list. If left empty the object wont appear.
 

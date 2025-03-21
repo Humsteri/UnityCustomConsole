@@ -62,8 +62,10 @@ namespace CustomConsolePackage
         }
         private void Update()
         {
+            if (!CustomConsole.Instance.closed) return;
+
             GetGameObjectFromMousePos();
-            if (ObjectHit != null && useMousePos && CustomConsole.Instance.closed && Input.GetMouseButtonDown(1))
+            if (ObjectHit != null && useMousePos && Input.GetMouseButtonDown(1))
             {
                 UnityEngine.Debug.Log($"Selected: {ObjectHit.name} which id is {ObjectHit.GetInstanceID()}. ID copied to clipboard.");
                 TextEditor te = new TextEditor();
