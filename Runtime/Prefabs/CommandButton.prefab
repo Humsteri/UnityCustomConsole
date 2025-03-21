@@ -134,10 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7646ee80652972c4ea95c5dcfcdbdb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverPrefab: {fileID: 549204961200326337, guid: 476cad1cdd5b8b0419e8a9624392557d, type: 3}
   hoverText: 
   offSet: {x: 300, y: 100}
-  canvasParent: {fileID: 993911590972685100, guid: 179b58b5230e5c643a18758b8f5de435, type: 3}
 --- !u!1 &8917763208168966876
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,8 +203,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 07f0d98a3e35afd4b9f55be095b7bc39, type: 2}
-  m_sharedMaterial: {fileID: -7048736408936394563, guid: 07f0d98a3e35afd4b9f55be095b7bc39, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
