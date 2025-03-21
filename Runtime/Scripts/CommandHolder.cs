@@ -5,21 +5,6 @@ namespace CustomConsolePackage
 {
     public class CommandHolder : MonoBehaviour
     {
-        [CustomCommand("ADD TOOLTIP TEXT HERE")]
-        public void TestCommand()
-        {
-            print("Hello from script");
-        }
-        [CustomCommand("ADD TOOLTIP TEXT HERE")]
-        public void AnotherCommand()
-        {
-            print("Hello from script");
-        }
-        [CustomCommand("Expects: String, int and bool")]
-        public void Jahoo(string text, int second, bool fro)
-        {
-            print("Hello from script: " + text + " " + second + " " + fro);
-        }
         [CustomCommand("Expects: GameObject ID")]
         public void DestroyCommand(int id)
         {

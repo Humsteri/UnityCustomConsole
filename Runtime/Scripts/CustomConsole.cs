@@ -101,21 +101,6 @@ namespace CustomConsolePackage
             warningLogButtonStartColor = warningLogButton.GetComponent<Image>().color;
             errorLogButtonStartColor = errorLogButton.GetComponent<Image>().color;
         }
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                UnityEngine.Debug.Log("Normal log");
-            }
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                UnityEngine.Debug.LogError("Error log");
-            }
-            if (Input.GetKeyDown(KeyCode.I))
-            {
-                UnityEngine.Debug.LogWarning("Warning log");
-            }
-        }
         void OpenInEditor(string fileName, [CallerLineNumber] int lineNumber = 0)
         {
 #if UNITY_EDITOR
