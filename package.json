@@ -1,0 +1,10 @@
+{
+  "name": "com.humsteri.custom-console",
+  "version": "0.1.0",
+  "displayName": "Custom Console",
+  "description": "Custom console to print logs in build and use custom commands.",
+  "unity": "6000.0",
+  "author": {
+    "name": "humsteri"
+  }
+}
