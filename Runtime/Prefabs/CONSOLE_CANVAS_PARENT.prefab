@@ -912,7 +912,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1524221842483392348
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46db7a6caee9eb4468e556c17b4e7dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chosenType: 1
+  chosenType: 0
   normalLogButton: {fileID: 2266717653580703981}
   warningLogButton: {fileID: 1929868918540080392}
   errorLogButton: {fileID: 4203216344902245712}
@@ -1013,10 +1013,11 @@ MonoBehaviour:
   logPrefab: {fileID: 2096690219644083374, guid: 7821d99a003f5864e8e8da6caac7fad2, type: 3}
   animator: {fileID: 672815514094613320}
   closed: 0
+  openConsoleKey: 0
   hoverInfo: {fileID: 6354529284208979936}
   defaultCapacity: 10
   maxCapacity: 100
-  waitTimeBeforePool: 30
+  waitTimeBeforePool: 60
   gridLayoutGroup: {fileID: 1329005520666732044}
   shortCellSizeY: 30
   normalCellSizeY: 100
@@ -1034,13 +1035,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b160c0856db454a46b6af3d2487069d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 875848052824887327}
+  commandInputField: {fileID: 875848052824887327}
   suggestText: {fileID: 8453685758091592527}
   suggestPrefab: {fileID: 2096690219644083374, guid: 7821d99a003f5864e8e8da6caac7fad2, type: 3}
   commandScrollView: {fileID: 5373374688390337890}
   commandButton: {fileID: 5119927627932200212, guid: 11ee5780eda953c4fbbcc3212d9426a3, type: 3}
   suggestArea: {fileID: 1977831924401987069}
-  useMousePos: 1
+  useMousePos: 0
 --- !u!1 &2266717653580703981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,7 +2470,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2556375283549021325}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
