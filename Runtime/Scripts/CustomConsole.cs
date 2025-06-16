@@ -19,7 +19,7 @@ namespace CustomConsolePackage
         {
             if (Instance != null && Instance != this)
             {
-                Destroy(this);
+                DestroyImmediate(this);
             }
             else
             {
@@ -95,7 +95,7 @@ namespace CustomConsolePackage
                 logPrefab.transform.SetParent(poolHolder.transform);
             }, logPrefab =>
             {
-                Destroy(logPrefab);
+                DestroyImmediate(logPrefab);
             }, false, defaultCapacity, maxCapacity);
 
             normalLogButtonStartColor = normalLogButton.GetComponent<Image>().color;
