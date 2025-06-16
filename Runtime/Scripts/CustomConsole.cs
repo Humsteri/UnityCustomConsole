@@ -56,6 +56,7 @@ namespace CustomConsolePackage
         Color warningLogButtonStartColor;
         Color errorLogButtonStartColor;
         public GameObject hoverInfo;
+        public Transform hoverPos;
 
         [Header("Pooling")]
         [SerializeField] int defaultCapacity = 10;
