@@ -6,8 +6,10 @@ Tooltip will show when hovering over an command in the list. If left empty the o
 
 ## Example usage
 ```csharp
+using CustomConsolePackage;
+
 [CustomCommand("Add Tooltip here")]
-void Example(string txt)
+public void Example(string txt)
 {
     Debug.Log("Hello from code " + txt);
 }
